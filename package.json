@@ -1,0 +1,26 @@
+{
+  "name": "card-validation-lib-jess",
+  "version": "1.0.0",
+  "description": "A lib for credit card validation",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessicasimplicio/card-validation-lib-jess.git"
+  },
+  "keywords": [
+    "credit-card",
+    "validation"
+  ],
+  "author": "Jessica Simplicio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jessicasimplicio/card-validation-lib-jess/issues"
+  },
+  "homepage": "https://github.com/jessicasimplicio/card-validation-lib-jess#readme"
+}
