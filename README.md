@@ -20,8 +20,7 @@ $node
 
 ## versão 1.0.0
 
-- funcionalidades: conversão de números de 0 a 999999999;
-- conversão para texto em português brasileiro, com letras minúsculas.
+- funcionalidades: verifica se um número inteiro com mais de 1 dígito é válido. 
 
 
 ## instalação
@@ -36,6 +35,10 @@ $node
 - correção de bugs eventuais bugs;
 - implementação de verificação somente para quantidade mínima e máxima
 de dígitos que são usados em cartões(16 à 19 dígitos);
+
+#### versão 1.0.1 (released)
+- correção do readme;
+- melhoria no código; 
 
 #### versão 1.0.0 (released)
 - funcionalidades: verifica se um número inteiro com mais de 1 dígito é válido. 

@@ -1,3 +1,4 @@
+/*eslint-env node*/
 module.exports.cardValidator = function cardValidator(cardNumber) {
 	var result;
 	isEmpty(cardNumber);
@@ -8,7 +9,7 @@ module.exports.cardValidator = function cardValidator(cardNumber) {
 			result = cardNumberValidation(cardNumber);
 		}
 	}
-	//console.log(result);
+  //console.log(result);
 	return result;
 }
 
@@ -25,19 +26,18 @@ function isString(cardNumber){
 }
 
 function isNumber(cardNumber){
-	if(typeof cardNumber === "number"){
+	if (typeof cardNumber === "number"){
 		return true;
 	} else{
-		return false;
+    throw new TypeError("Precisa ser número!");
 	}
 }
 
 function isNumberInteger(cardNumber){
-	if(Number.isInteger(cardNumber)){
+	if (Number.isInteger(cardNumber)){
 		return true;
 	} else {
 		throw new TypeError("Numero precisa ser inteiro");
-		return false;
 	}
 }
 
@@ -45,44 +45,33 @@ function isNumberInteger(cardNumber){
 function numberHasOneDigit(cardNumber){
 	if (cardNumber.toString().length === 1){
 		throw new TypeError("Numero precisa ter mais de 1 digito!");
-		return true;
 	} else {
 		return false;
 	}
 }
 
 function cardNumberValidation(cardNumber){
-	cardNumber = cardNumber.toString();
-	let arrayNumbers = [];
-	let arrayNumberInverted = [];
-	let sum = 0;
 
-	for (let char of cardNumber){
-		arrayNumbers.push(char);
-	}
+  let sum = 0;
+	let arrayNumberInverted = cardNumber.toString().split("").reverse();
 
-	arrayNumberInverted = arrayNumbers.reverse();
+  arrayNumberInverted = arrayNumberInverted.map(Number);
 
-	//==========>  FAZER COM MAP/REDUCE
-	for (let index = 1; index < arrayNumberInverted.length; index = index + 2) {
-		let doubleNumber = arrayNumberInverted[index] * 2;
-		if (doubleNumber > 9) {
-			arrayNumberInverted[index] = doubleNumber - 9;
-		} else {
-			arrayNumberInverted[index] = doubleNumber;
-		}
-	}
+  arrayNumberInverted.map((number, index) => {
+    if (index % 2 === 1) {//se o indice for impar
+      let doubleNumber = number * 2;
+      if (doubleNumber > 9) {
+        number = doubleNumber - 9;
+      } else {
+        number = doubleNumber;
+      }
+    } 
+  })
+
 
 	arrayNumberInverted.forEach(function(element) {
-		sum += parseInt(element);
+		sum += element;
 	});
 
-
-	//USAR TERNARIO
-	if ( sum % 10 === 0){
-    return true;
-  }else {
-  	return false;  	
-  }
-
+  return (sum % 10 === 0) ? true : false; 
 }
