@@ -1,6 +1,6 @@
 {
   "name": "card-validation-lib-jess",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lib for credit card validation",
   "main": "index.js",
   "directories": {
