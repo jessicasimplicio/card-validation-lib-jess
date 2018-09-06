@@ -1,10 +1,15 @@
 function cardValidator(cardNumber) {
-
+	var result;
 	isEmpty(cardNumber);
 	isString(cardNumber);
-	isNumber(cardNumber);
-	//console.log(isNumber(cardNumber));
 
+	if (isNumber(cardNumber)){
+		if (isNumberInteger(cardNumber) && !numberHasOneDigit(cardNumber)){
+			result = cardNumberValidation(cardNumber);
+		}
+	}
+	//console.log(result);
+	return result;
 }
 
 function isEmpty(cardNumber){
@@ -20,24 +25,26 @@ function isString(cardNumber){
 }
 
 function isNumber(cardNumber){
-	if (typeof cardNumber === "number"){
-
-		if(Number.isInteger(cardNumber)){
-
-			if (numberHasOneDigit(cardNumber)){
-				throw new TypeError("Numero precisa ter mais de 1 digito!");	
-			} else {
-				return cardNumberValidation(cardNumber);	
-			}
-			
-		} else{
-			throw new TypeError("Numero precisa ser inteiro");
-		}
+	if(typeof cardNumber === "number"){
+		return true;
+	} else{
+		return false;
 	}
 }
 
+function isNumberInteger(cardNumber){
+	if(Number.isInteger(cardNumber)){
+		return true;
+	} else {
+		throw new TypeError("Numero precisa ser inteiro");
+		return false;
+	}
+}
+
+
 function numberHasOneDigit(cardNumber){
 	if (cardNumber.toString().length === 1){
+		throw new TypeError("Numero precisa ter mais de 1 digito!");
 		return true;
 	} else {
 		return false;
@@ -66,18 +73,13 @@ function cardNumberValidation(cardNumber){
 		}
 	}
 
-		//Soma todos os valores do array
 	arrayNumberInverted.forEach(function(element) {
 		sum += parseInt(element);
 	});
 
-
-	//O número do cartao é valido se for divisível por 10
 	if ( sum % 10 === 0){
-		console.log("valido");
     return true;
   }else {
-  	console.log("nao valido");
   	return false;  	
   }
 
@@ -88,5 +90,5 @@ module.exports = cardValidator;
 
 cardValidator(36490102462661);
 
-cardValidator(4716905995681);
+//cardValidator(4716905995681);
 
