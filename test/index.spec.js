@@ -33,10 +33,10 @@ describe("index", function() {
 
 			describe("and it has more than one digit", function() {
 				it("should verify if the number is valid", function() {
-					expect(() => index.cardValidator(36490102462661)).to.equal(true);
-					//expect(() => index.cardValidator(4716905995681)).to.be.true;
-					//expect(() => index.cardValidator(4716905995682)).to.be.false;
-					//expect(() => index.cardValidator(36490102462664)).to.be.false;										
+					expect(index.cardValidator(36490102462661)).to.equal(true);
+					expect(index.cardValidator(4716905995681)).to.be.true;
+					expect(index.cardValidator(4716905995682)).to.be.false;
+					expect(index.cardValidator(36490102462664)).to.be.false;										
 				});
 			});
 		});

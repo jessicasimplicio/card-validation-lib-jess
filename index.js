@@ -1,4 +1,4 @@
-function cardValidator(cardNumber) {
+module.exports.cardValidator = function cardValidator(cardNumber) {
 	var result;
 	isEmpty(cardNumber);
 	isString(cardNumber);
@@ -86,11 +86,3 @@ function cardNumberValidation(cardNumber){
   }
 
 }
-
-module.exports = cardValidator; 
-
-
-cardValidator(36490102462661);
-
-//cardValidator(4716905995681);
-
