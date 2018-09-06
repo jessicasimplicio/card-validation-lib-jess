@@ -37,19 +37,4 @@ describe("index", function() {
 
 	});
 
-	/*describe("#badFn", function() {
-
-		describe.only("when is empty", function() {
-			it("should throw an error", function() {
-				//expect(index.cardValidator('')).to.be.empty;
-				expect(index.badFn).to.throw(TypeError);
-
-			});
-		});
-
-	});*/
-
-
-	
-
 }); 
