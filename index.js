@@ -63,7 +63,7 @@ function cardNumberValidation(cardNumber){
 
 	arrayNumberInverted = arrayNumbers.reverse();
 
-	//==========> VER SE DÁ PARA FAZER COM MAP/REDUCE
+	//==========>  FAZER COM MAP/REDUCE
 	for (let index = 1; index < arrayNumberInverted.length; index = index + 2) {
 		let doubleNumber = arrayNumberInverted[index] * 2;
 		if (doubleNumber > 9) {
@@ -77,6 +77,8 @@ function cardNumberValidation(cardNumber){
 		sum += parseInt(element);
 	});
 
+
+	//USAR TERNARIO
 	if ( sum % 10 === 0){
     return true;
   }else {
